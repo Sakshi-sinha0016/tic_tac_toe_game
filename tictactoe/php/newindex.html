@@ -1,0 +1,52 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online C Compiler</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <div id="code">
+    <input type="file" id="fileInput" accept=".c">
+    <textarea id="code" placeholder="Enter your C code here"></textarea>
+    <button onclick="compileCode()">Compile and Run</button>
+    </div>
+    <pre id="output"></pre>
+
+    <script>
+        function compileCode() {
+            // Get the C code from the textarea or file input
+            const fileInput = document.getElementById('fileInput');
+            const code = fileInput.files.length > 0 ? readFile(fileInput.files[0]) : document.getElementById('code').value;
+
+            // Send the code to the backend for compilation
+            fetch('compile.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'code=' + encodeURIComponent(code),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the output
+                document.getElementById('output').innerText = data.output;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function readFile(file) {
+            const reader = new FileReader();
+            return new Promise((resolve, reject) => {
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsText(file);
+            });
+        }
+    </script>
+</body>
+</html>

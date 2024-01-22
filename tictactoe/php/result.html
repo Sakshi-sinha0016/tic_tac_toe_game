@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a.out Content</title>
+</head>
+<body>
+    <pre id="output"></pre>
+<textarea id="code" placeholder="Enter your C code here"></textarea>
+    <button onclick="compileCode()">Compile and Run</button>
+    <pre id="output"></pre>
+
+    <script>
+        // Use fetch to load the content of a.out
+        fetch('C:/xampp_f/htdocs/tictactoe/Tic_tac_toe.exe')
+            .then(response => response.text())
+            .then(data => {
+                // Display the content in the <pre> element
+                document.getElementById('output').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+   
+
+ 
+        function compileCode() {
+            // Get the C code from the textarea
+            const code = document.getElementById('code').value;
+
+            // Send the code to the backend for compilation
+            fetch('compile.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'code=' + encodeURIComponent(code),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the output
+                document.getElementById('output').innerText = data.output;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</html>

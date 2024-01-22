@@ -1,0 +1,111 @@
+/* -- feature section -- */
+.features{
+    text-align: center;
+    padding: 50px 0;
+}
+
+.features h2{
+    font-size: 28px;
+    margin-bottom: 20px;
+    color:brown;
+    text-decoration: solid;
+    background-color: beige;
+}
+
+.feature-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.feature{
+    width: calc(33.3% - 20px);
+    margin: 0 10px;
+    background-color:azure;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.feature img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.feature h3{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+/* -- Hover effect -- */
+.feature:hover{
+    transform: scale(1.05);
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--== Feature Section ==-->
+    <section class="features">
+      <h2>Features</h2>
+      <div class="feature-card">
+          <div class="feature">
+               <h3>Contact Us</h3><br>
+    <input type="textbox" placeholder="Your Name" class="txt"><br>
+    <input type="textbox" placeholder="Your E-mail" class="txt"><br>
+    <input type="textbox" placeholder="Message" class="txt"><br>
+    <button type="button" class="lbtn" onclick="window.location.href='login_ttt.html'">Send</button>
+    <!--<img src="assets/back.jpg" alt="" width="215" height="234">
+              <h3>Feature 1</h3>
+              <p>Description of Feature 1</p>-->
+          </div>
+          <div class="feature">
+             <!-- <img src="assets/empty.jpg" alt="" width="215" height="234">
+              <h3>Feature 2</h3>
+              <p>Description of Feature 2</p>-->
+             <h3> Suggestion/Complain </h3><br>
+              <input type="textbox" placeholder="Your E-mail" class="txt"><br>
+              <box-icon type='solid' name='message-dots'></box-icon>
+              <input type="textbox" placeholder="Message" class="txt" ><br>
+              <button type="button" class="lbtn" onclick="window.location.href='login_ttt.html'">Send</button>
+          </div>
+          <div class="feature">
+            <!-- <img src="assets/empty.jpg" alt="" width="215" height="234">
+             <h3>Feature 2</h3>
+             <p>Description of Feature 2</p>-->
+            <h3>Latest Tweets </h3><br>
+            <h3>Lorem ipsm@GameZone</h3>
+            <h5>@GameZone to ninjas and,unrehearsed,this song broke out- http://youtu.be/GFLGidf...</h5>
+            <h3>Special moments with</h3>
+            <h5>@GameZone captured on film- http://youtu.be/MAQJcRrH...</h5>
+            <!--<input type="textbox" placeholder="Your E-mail" class="txt"><br>
+             <button type="button" class="lbtn" onclick="window.location.href='login_ttt.html'">Send</button>-->
+         </div>
+      </div>
+  </section> 
